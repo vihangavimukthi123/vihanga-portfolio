@@ -18,6 +18,8 @@ const projects = [
     description: 'Comprehensive HR solution for managing employees, attendance, payroll, leaves, and departmental operations with real-time analytics.',
     image: project1,
     tags: ['React', 'Node.js', 'PostgreSQL', 'Tailwind'],
+    github: 'https://github.com/vihangavimukthi123',
+    live: '', // Add live demo URL if available
   },
   {
     id: 2,
@@ -25,6 +27,8 @@ const projects = [
     description: 'Modern POS system with cash management, inventory tracking, and seamless transaction processing for retail businesses.',
     image: project2,
     tags: ['PHP', 'MySql', 'CSS', 'HTML'],
+    github: 'https://github.com/vihangavimukthi123',
+    live: '', // Add live demo URL if available
   },
   {
     id: 3,
@@ -32,6 +36,8 @@ const projects = [
     description: 'Personal finance management application with expense tracking, budget planning, and visual analytics for better financial decisions.',
     image: project3,
     tags: ['Kotlin', 'Firebase', 'Charts.js'],
+    github: 'https://github.com/vihangavimukthi123',
+    live: '', // Add live demo URL if available
   },
   {
     id: 4,
@@ -39,6 +45,8 @@ const projects = [
     description: 'MEALmate - A streamlined food ordering platform for hostel cafeterias with menu management and order tracking capabilities.',
     image: project4,
     tags: ['Express', 'MongoDB', 'Stripe', 'react'],
+    github: 'https://github.com/vihangavimukthi123',
+    live: '', // Add live demo URL if available
   },
   {
     id: 5,
@@ -46,15 +54,18 @@ const projects = [
     description: 'Complete vehicle service management system with appointment scheduling, service history, and fuel consumption tracking.',
     image: project5,
     tags: ['React', 'Express', 'MySQL', 'Bootstrap'],
+    github: 'https://github.com/vihangavimukthi123',
+    live: '', // Add live demo URL if available
   },
   {
     id: 6,
-  title: 'Online Marketplace Platform',
-  description: 'A full-featured online marketplace platform enabling users to buy and sell products with secure authentication, product listings, cart management, and order tracking.',
-  image: project6,
-  tags: ['MongoDB', 'Express', 'React', 'Node.js'],
-},
-
+    title: 'Online Marketplace Platform',
+    description: 'A full-featured online marketplace platform enabling users to buy and sell products with secure authentication, product listings, cart management, and order tracking.',
+    image: project6,
+    tags: ['MongoDB', 'Express', 'React', 'Node.js'],
+    github: 'https://github.com/vihangavimukthi123',
+    live: '', // Add live demo URL if available
+  },
 ];
 
 const Projects = () => {
@@ -140,12 +151,28 @@ const Projects = () => {
                 
                 {/* Overlay buttons */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <button className="p-3 rounded-full bg-background/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                    <ExternalLink size={20} />
-                  </button>
-                  <button className="p-3 rounded-full bg-background/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-background/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label="View live demo"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full bg-background/80 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label="View on GitHub"
+                  >
                     <Github size={20} />
-                  </button>
+                  </a>
                 </div>
               </div>
 
