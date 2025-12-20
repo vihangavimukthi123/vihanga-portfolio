@@ -108,10 +108,15 @@ const Services = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleGetStarted = () => {
+  const handleGetStarted = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start',
+        inline: 'nearest'
+      });
     }
   };
 
@@ -143,19 +148,19 @@ const Services = () => {
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="services-grid grid md:grid-cols-2 gap-6 mb-6">
-            {services.slice(0, 2).map((service) => {
+          {/* Services Grid - All three in one row */}
+          <div className="services-grid grid md:grid-cols-3 gap-6">
+            {services.map((service) => {
               const IconComponent = service.icon;
               return (
-                <div key={service.id} className="service-card glass-card p-8 group hover:border-primary/50 transition-all duration-300">
+                <div key={service.id} className="service-card glass-card p-8 group hover:border-primary/50 transition-all duration-300 flex flex-col">
                   <div className={`w-16 h-16 rounded-full ${service.iconColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent size={32} />
                   </div>
                   <h3 className="text-2xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 font-light">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 font-light flex-grow">
                     {service.description}
                   </p>
                   <ul className="space-y-2 mb-6">
@@ -168,7 +173,7 @@ const Services = () => {
                   </ul>
                   <button
                     onClick={handleGetStarted}
-                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group/btn"
+                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group/btn mt-auto"
                   >
                     <span className="font-light">Get Started</span>
                     <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -177,40 +182,6 @@ const Services = () => {
               );
             })}
           </div>
-
-          {/* Mobile App Development - Full Width */}
-          {(() => {
-            const mobileService = services[2];
-            const MobileIcon = mobileService.icon;
-            return (
-              <div className="service-card glass-card p-8 group hover:border-primary/50 transition-all duration-300">
-                <div className={`w-16 h-16 rounded-full ${mobileService.iconColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <MobileIcon size={32} />
-                </div>
-                <h3 className="text-2xl font-medium text-foreground mb-4 group-hover:text-primary transition-colors">
-                  {mobileService.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6 font-light max-w-3xl">
-                  {mobileService.description}
-                </p>
-                <ul className="grid md:grid-cols-2 gap-x-8 gap-y-2 mb-6">
-                  {mobileService.services.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-foreground">
-                      <span className="text-orange-400 mt-1.5">•</span>
-                      <span className="font-light">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={handleGetStarted}
-                  className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group/btn"
-                >
-                  <span className="font-light">Get Started</span>
-                  <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            );
-          })()}
         </div>
       </div>
     </section>
