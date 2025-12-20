@@ -9,6 +9,13 @@ import AwsTrainingCertification from '@/assets/AWS Training & Certification.pdf'
 import AwsSimuLearnCloudPractitioner from '@/assets/AWS SimuLearn cloud practitioner.pdf';
 import AwsSimuLearnHighAvailability from '@/assets/AWS SimuLearn highly available web applications.pdf';
 
+import AzureRelationalDatabase from '@/assets/Explore relational database services in Azure.pdf';
+import AzureVirtualMachines from '@/assets/Introduction to Azure virtual machines.pdf';
+import AzureLoadBalancer from '@/assets/Improve application scalability and resiliency by using Azure Load Balancer.pdf';
+import AzureVirtualNetworks from '@/assets/Configure virtual networks.pdf';
+import AzureBlobStorage from '@/assets/Configure Azure Blob Storage.pdf';
+import AzureVMAvailability from '@/assets/Configure virtual machine availability.pdf';
+
 gsap.registerPlugin(ScrollTrigger);
 
 type Certificate = {
@@ -20,6 +27,7 @@ type Certificate = {
 };
 
 const certificates: Certificate[] = [
+  // AWS Certificates
   {
     id: 1,
     title: 'AWS Technical Essentials',
@@ -54,6 +62,49 @@ const certificates: Certificate[] = [
     provider: 'Amazon Web Services / SimuLearn',
     pdf: AwsSimuLearnHighAvailability,
     platform: 'AWS',
+  },
+  // Azure Certificates
+  {
+    id: 6,
+    title: 'Explore Relational Database Services in Azure',
+    provider: 'Microsoft Azure',
+    pdf: AzureRelationalDatabase,
+    platform: 'Azure',
+  },
+  {
+    id: 7,
+    title: 'Introduction to Azure Virtual Machines',
+    provider: 'Microsoft Azure',
+    pdf: AzureVirtualMachines,
+    platform: 'Azure',
+  },
+  {
+    id: 8,
+    title: 'Improve Application Scalability and Resiliency by Using Azure Load Balancer',
+    provider: 'Microsoft Azure',
+    pdf: AzureLoadBalancer,
+    platform: 'Azure',
+  },
+  {
+    id: 9,
+    title: 'Configure Virtual Networks',
+    provider: 'Microsoft Azure',
+    pdf: AzureVirtualNetworks,
+    platform: 'Azure',
+  },
+  {
+    id: 10,
+    title: 'Configure Azure Blob Storage',
+    provider: 'Microsoft Azure',
+    pdf: AzureBlobStorage,
+    platform: 'Azure',
+  },
+  {
+    id: 11,
+    title: 'Configure Virtual Machine Availability',
+    provider: 'Microsoft Azure',
+    pdf: AzureVMAvailability,
+    platform: 'Azure',
   },
 ];
 

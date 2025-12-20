@@ -31,10 +31,16 @@ const CTA = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      // Use scrollIntoView which works better with Lenis
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start',
+        inline: 'nearest'
+      });
     }
   };
 
@@ -55,13 +61,17 @@ const CTA = () => {
             <p className="text-muted-foreground text-lg md:text-xl mb-8 font-light leading-relaxed max-w-2xl mx-auto">
               Let's collaborate to bring your vision to life. Whether you need a website, mobile app, or complete digital solution, I'm here to help.
             </p>
-            <button
-              onClick={handleClick}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-orange-400 hover:bg-orange-500 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-400/20"
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleClick();
+              }}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-orange-400 hover:bg-orange-500 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-400/20 cursor-pointer"
             >
               Let's Work Together
               <ArrowRight size={20} />
-            </button>
+            </a>
           </div>
         </div>
       </div>
