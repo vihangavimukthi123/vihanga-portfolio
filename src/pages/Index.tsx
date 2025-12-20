@@ -7,6 +7,7 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Projects from '@/components/Projects';
 import Certificates from '@/components/Certificates';
+import CTA from '@/components/CTA';
 import DownloadCV from '@/components/DownloadCV';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -56,6 +57,7 @@ const Index = () => {
           <Services />
           <Projects />
           <Certificates />
+          <CTA />
           <DownloadCV />
           <Contact />
         </main>
